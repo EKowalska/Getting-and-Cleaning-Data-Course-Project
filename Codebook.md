@@ -31,8 +31,5 @@ Step 4 labels the data set with descriptive variable names
 * remaining variable names unchanged, further explication would result in very long variable names
 
 Step 5 creates a second, independent tidy data set with the average of each variable for each activity and each subject
-* av_data_set <- tidy_data %>%
-  group_by(subject, activity) %>%
-  summarise_all(funs(mean))
-  #Set 5.2 Saving tidy data set to txt file
-write.table(av_data_set, "av_data_set.txt", row.names = FALSE)
+* av_data_set (180 rows, 88 column) - contains summary of tidy_data by calculating average (mean) of each variable first grouped by subject and activity
+* av_data_set is exported to txt file as av_data_set.txt
