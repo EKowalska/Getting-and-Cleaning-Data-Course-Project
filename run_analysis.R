@@ -34,6 +34,7 @@ tidy_data$code <- activities[tidy_data$code, 2]
 
 #Step 4 Appropriately labeling the data set with descriptive variable names
 names(tidy_data)[2] = "activity" 
+names(tidy_data)<-gsub("BodyBody", "Body", names(tidy_data))
 #Remaining variable names unchanged. Further explication would result in very long variable names
 
 #Step 5 Creating a second, independent tidy data set with the average of each variable for each 
