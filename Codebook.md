@@ -1,6 +1,6 @@
 The run_analysis.R script performs data cleaning in accordance with project discription.
 
-Step 0. Preparation stage
+Step 0 is a prepartion stage
  * dplyr library installed
  * dataset downloaded and extracted to folder called "data"
  * data assigned to variables:
@@ -13,26 +13,25 @@ Step 0. Preparation stage
      * x_train (7352 rows, 561 column) - contains recorded features for train subjects
      * y_train (7352 rows, 1 column) - contains activity codes for train features <br>
 
-Step 1. Merge the training and the test sets to create one data set
+Step 1 merges the training and the test sets to create one data set
 * x_set (10299 rows, 561 column) - contains recorded features for test and train subject binded by rows
-* y_set (10299 rows, 1 column)- contains activity codes for test and train features binded by rows
+* y_set (10299 rows, 1 column) - contains activity codes for test and train features binded by rows
 * subject_set (10299 rows, 1 column) - contains list of all 30 subjects, test and train subject binded by rows
 * merged_data (10299 rows, 563 column) - contains all features, activity codes and subjects number binded by columns
 
-#Step 2 Extracting only the measurements on the mean and standard deviation for each measurement
-tidy_data <- select(merged_data, subject, code, contains("mean"), contains("std"))
+Step 2 extracts only the measurements on the mean and standard deviation for each measurement
+* tidy_data (10299 rows, 88 column) - created from merged_data by selecting columns: subject, code and features with "mean" or "std" in name
 
-#Step 3 Using descriptive activity names to name the activities in the data set
-tidy_data$code <- activities[tidy_data$code, 2]
+Step 3 names the activities in the data set
+* column "code" from tidy_data replaced with corresponding activity name from variable activities
 
-#Step 4 Appropriately labeling the data set with descriptive variable names
-names(tidy_data)[2] = "activity" 
-#Remaining variable names unchanged. Further explication would result in very long variable names
+Step 4 labels the data set with descriptive variable names
+* column "code" renamed to "activity
+* words "BodyBody" in column names replaced with single word "Body"
+* remaining variable names unchanged, further explication would result in very long variable names
 
-#Step 5 Creating a second, independent tidy data set with the average of each variable for each 
-#activity and each subject
-  #Step 5.1 Creating variable with tidy data set
-av_data_set <- tidy_data %>%
+Step 5 creates a second, independent tidy data set with the average of each variable for each activity and each subject
+* av_data_set <- tidy_data %>%
   group_by(subject, activity) %>%
   summarise_all(funs(mean))
   #Set 5.2 Saving tidy data set to txt file
