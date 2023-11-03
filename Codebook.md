@@ -14,10 +14,10 @@ Step 0. Preparation stage
      * y_train (7352 rows, 1 column) - contains activity codes for train features <br>
 
 Step 1. Merge the training and the test sets to create one data set
-x_set <- rbind(x_train, x_test)
-y_set <- rbind(y_train, y_test)
-subject_set <- rbind(subject_train, subject_test)
-merged_data <- cbind(subject_set, y_set, x_set)
+* x_set (10299 rows, 561 column) - contains recorded features for test and train subject binded by rows
+* y_set (10299 rows, 1 column)- contains activity codes for test and train features binded by rows
+* subject_set (10299 rows, 1 column) - contains list of all 30 subjects, test and train subject binded by rows
+* merged_data (10299 rows, 563 column) - contains all features, activity codes and subjects number binded by columns
 
 #Step 2 Extracting only the measurements on the mean and standard deviation for each measurement
 tidy_data <- select(merged_data, subject, code, contains("mean"), contains("std"))
