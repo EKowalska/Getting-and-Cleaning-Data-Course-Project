@@ -1,4 +1,4 @@
-The run_analysis.R script performs data cleaning in accordance with project discription.
+The run_analysis.R script performs data cleaning in accordance with project description.
 
 Step 0 is a prepartion stage
  * dplyr library installed
