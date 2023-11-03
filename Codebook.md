@@ -4,14 +4,14 @@ Step 0. Preparation stage
  * dplyr library installed
  * dataset downloaded and extracted to folder called "data"
  * data assigned to variables:
-     * features
-     * activities
-     * subject_test
-     * x_test
-     * y_test
-     * subject_train
-     * x_train
-     * y_train <br>
+     * features (561 rows, 2 columns) - contains features from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ
+     * activities (6 rows, 2 columns) - contains a list of performed activities with corresponding code number
+     * subject_test (2947 rows, 1 column) - contains a list of 9 out od 30 subject that test data was taken from
+     * x_test (2947 rows, 561 column) - contains recorded features for test subjects
+     * y_test (2947 rows, 1 column) - contains activity codes for test features
+     * subject_train (7352 rows, 1 column) - contains a list of 21 out od 30 subject that test data was taken from
+     * x_train (7352 rows, 561 column) - contains recorded features for train subjects
+     * y_train (7352 rows, 1 column) - contains activity codes for train features <br>
 
 Step 1. Merge the training and the test sets to create one data set
 x_set <- rbind(x_train, x_test)
